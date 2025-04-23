@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'retrieved' => ':Model retrieved successfully.',
     'is_required' => ':Field is required',
     'is_incorrect' => ':Field is incorrect',
     'is_invalid' => ':Field is invalid',

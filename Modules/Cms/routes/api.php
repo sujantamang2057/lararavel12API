@@ -2,9 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Cms\app\Http\Controllers\Api\BannerController;
+use Modules\Cms\Http\Controllers\Api\NewsCategoryController;
 
 Route::prefix('cms')->group(function () {
 
 Route::apiResource('banners', BannerController::class)->names('cms.banners');
+
+// news-categories
+Route::get('news-categories/trash-list', [NewsCategoryController::class, 'trashList'])->name('cms.news-categories.trashList');
+
+Route::apiResource('news-categories', NewsCategoryController::class)->names('cms.news-categories');
+
 });
+
+
 
