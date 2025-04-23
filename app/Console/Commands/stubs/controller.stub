@@ -1,0 +1,111 @@
+<?php
+
+namespace {{controllerNameSpace}};
+
+use {{modelNameSpace}}\{{modelName}};
+use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use Flash;
+
+
+class {{modelName}}Controller extends AppBaseController
+{
+    /**
+     * Display a listing of the {{modelName}}.
+     */
+    public function index()
+    {
+        ${{modelCamelPlural}} = {{modelName}}::paginate(10);
+        return view('{{viewPrefix}}{{modelSnakePlural}}.index', compact('{{modelCamelPlural}}'));
+    }
+
+    /**
+     * Show the form for creating a new {{modelName}}.
+     */
+    public function create()
+    {
+        return view('{{viewPrefix}}{{modelSnakePlural}}.create');
+    }
+
+    /**
+     * Store a newly created {{modelName}} in storage.
+     */
+    public function store(Request $request)
+    {
+        $input = $request->all();
+
+        ${{modelCamel}} = {{modelName}}::create($input);
+
+        Flash::success('{{modelName}} saved successfully.');
+
+        return redirect(route('{{routePrefix}}{{modelSnakePlural}}.index'));
+    }
+
+    /**
+     * Display the specified {{modelName}}.
+     */
+    public function show($id)
+    {
+        ${{modelCamel}} = {{modelName}}::find($id);
+
+        if (empty(${{modelCamel}})) {
+            Flash::error('{{modelName}} not found');
+            return redirect(route('{{routePrefix}}{{modelSnakePlural}}.index'));
+        }
+
+        return view('{{viewPrefix}}{{modelSnakePlural}}.show')->with('{{modelCamel}}', ${{modelCamel}});
+    }
+
+    /**
+     * Show the form for editing the specified {{modelName}}.
+     */
+    public function edit($id)
+    {
+        ${{modelCamel}} = {{modelName}}::find($id);
+
+        if (empty(${{modelCamel}})) {
+            Flash::error('{{modelName}} not found');
+            return redirect(route('{{routePrefix}}{{modelSnakePlural}}.index'));
+        }
+
+        return view('{{viewPrefix}}{{modelSnakePlural}}.edit')->with('{{modelCamel}}', ${{modelCamel}});
+    }
+
+    /**
+     * Update the specified {{modelName}} in storage.
+     */
+    public function update($id, Request $request)
+    {
+        ${{modelCamel}} = {{modelName}}::find($id);
+
+        if (empty(${{modelCamel}})) {
+            Flash::error('{{modelName}} not found');
+            return redirect(route('{{routePrefix}}{{modelSnakePlural}}.index'));
+        }
+
+        ${{modelCamel}}->update($request->all());
+
+        Flash::success('{{modelName}} updated successfully.');
+
+        return redirect(route('{{routePrefix}}{{modelSnakePlural}}.index'));
+    }
+
+    /**
+     * Remove the specified {{modelName}} from storage.
+     */
+    public function destroy($id)
+    {
+        ${{modelCamel}} = {{modelName}}::find($id);
+
+        if (empty(${{modelCamel}})) {
+            Flash::error('{{modelName}} not found');
+            return redirect(route('{{routePrefix}}{{modelSnakePlural}}.index'));
+        }
+
+        ${{modelCamel}}->delete();
+
+        Flash::success('{{modelName}} deleted successfully.');
+
+        return redirect(route('{{routePrefix}}{{modelSnakePlural}}.index'));
+    }
+}
