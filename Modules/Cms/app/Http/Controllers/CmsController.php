@@ -3,54 +3,42 @@
 namespace Modules\Cms\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class CmsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    use AuthorizesRequests, ValidatesRequests;
+
+    public $commonLangFile;
+
+    public $langFile;
+
+    public $imageFilePath;
+
+    public $imageDimensions;
+
+    public $fileUplodPath;
+
+    public function successResponse($message = '', $data = [], $code = 200)
     {
-        return view('cms::index');
+        $responseArray = [
+            'status' => 'success',
+            'message' => $message,
+            'data' => $data,
+        ];
+
+        return response()->json($responseArray, $code);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function failedResponse($message = '', $data = [], $code = 200)
     {
-        return view('cms::create');
+        $responseArray = [
+            'status' => 'failed',
+            'message' => $message,
+            'data' => $data,
+        ];
+
+        return response()->json($responseArray, $code);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {}
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('cms::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('cms::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
 }
