@@ -1,5 +1,6 @@
 {
     "CmsAdmin": true,
     "Sys": true,
-    "Common": true
+    "Common": true,
+    "Cms": true
 }
