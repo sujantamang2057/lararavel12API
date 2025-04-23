@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\CmsAdmin\Http\Controllers\CmsAdminController;
+use Modules\CmsAdmin\app\Http\Controllers\Api\BannerController;
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('cmsadmin', CmsAdminController::class)->names('cmsadmin');
-});
+Route::apiResource('banners', BannerController::class)->names('CmsAdmin.banners');
+
