@@ -5,7 +5,8 @@ use Modules\Cms\Http\Controllers\Api\BannerController;
 use Modules\Cms\Http\Controllers\Api\NewsCategoryController;
 
 Route::prefix('cms')->group(function () {
-
+    
+Route::get('banners/trash-list', [BannerController::class, 'trashList'])->name('cms.banners.trashList');
 Route::apiResource('banners', BannerController::class)->names('cms.banners');
 
 // news-categories
