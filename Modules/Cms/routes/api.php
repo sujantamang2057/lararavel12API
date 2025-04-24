@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Cms\app\Http\Controllers\Api\BannerController;
+use Modules\Cms\Http\Controllers\Api\BannerController;
 use Modules\Cms\Http\Controllers\Api\NewsCategoryController;
 
 Route::prefix('cms')->group(function () {

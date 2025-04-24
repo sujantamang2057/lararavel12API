@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Cms\app\Http\Controllers\Api;
+namespace Modules\Cms\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Modules\Cms\app\Http\Controllers\CmsController;
+use Modules\Cms\Http\Controllers\CmsController;
 use Modules\Cms\app\Http\Resources\Api\BannerResource;
 use Modules\Cms\app\Models\Api\Banner;
 use Modules\Common\app\Components\FileStorageManager;

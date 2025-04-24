@@ -103,3 +103,6 @@ define('RESOURCE_FILE_DIR_NAME', 'resource');
 define('RESOURCE_FILE_PATH', APP_STORAGE_PATH . RESOURCE_FILE_DIR_NAME);
 define('RESOURCE_FILE_MAX_SIZE', 2000);
 define('RESOURCE_FILE_ALLOWED_TYPES', ['pdf', 'doc', 'docx']);
+
+
+define('NON_RESIZABLE_TYPES', ['svg', 'gif']);
