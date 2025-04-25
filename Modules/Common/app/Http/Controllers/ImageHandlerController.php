@@ -2,7 +2,7 @@
 
 namespace Modules\Common\app\Http\Controllers;
 
-use App\Http\Controllers\AppBaseController;
+use  Modules\Common\app\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 
 class ImageHandlerController extends AppBaseController

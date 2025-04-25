@@ -23,6 +23,33 @@ class BannerController extends CmsController
     /**
      * Display a listing of the resource.
      */
+    /**
+     * @OA\Get(
+     *      path="/cms/banners",
+     *      summary="getBannerList",
+     *      tags={"Banner"},
+     *      description="Get all Banners",
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *
+     *          @OA\JsonContent(
+     *              type="object",
+     *
+     *              @OA\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *             
+     *              @OA\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
+     */
     public function index(Request $request)
     {
         $perPage = $request->get('limit', MAX_PAGINATION_PER_PAGE_LOW);
