@@ -41,4 +41,5 @@ class CmsController extends Controller
 
         return response()->json($responseArray, $code);
     }
-}
+} 
+                                
